@@ -1,0 +1,492 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# ¿En cuanto está avaluado un Ford Mustang en Colombia?",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:54:22.409",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003e¿En cuanto está avaluado un Ford Mustang en Colombia?\u003c/h1\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600037624796_998016704",
+      "id": "paragraph_1600037624796_998016704",
+      "dateCreated": "2020-09-13 17:53:44.796",
+      "dateStarted": "2020-09-13 17:54:22.421",
+      "dateFinished": "2020-09-13 17:54:24.580",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\n\ndetalles \u003d spark.read.option(\"header\", \"true\").option(\"inferSchema\", \"true\").csv(\"/home/juan/workspace/datasets/kaggle/vehicles/detalles\")\n\ndetalles.printSchema()\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:28:33.414",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Novedad: string (nullable \u003d true)\n |-- Marca: string (nullable \u003d true)\n |-- Clase: string (nullable \u003d true)\n |-- Codigo: integer (nullable \u003d true)\n |-- Homologocodigo: string (nullable \u003d true)\n |-- Referencia1: string (nullable \u003d true)\n |-- Referencia2: string (nullable \u003d true)\n |-- Referencia3: string (nullable \u003d true)\n |-- Peso: integer (nullable \u003d true)\n |-- IdServicio: integer (nullable \u003d true)\n |-- Servicio: string (nullable \u003d true)\n |-- Bcpp: integer (nullable \u003d true)\n |-- Importado: integer (nullable \u003d true)\n |-- Potencia: integer (nullable \u003d true)\n |-- TipoCaja: string (nullable \u003d true)\n |-- Cilindraje: integer (nullable \u003d true)\n |-- Nacionalidad: string (nullable \u003d true)\n |-- CapacidadPasajeros: integer (nullable \u003d true)\n |-- CapacidadCarga: integer (nullable \u003d true)\n |-- Puertas: integer (nullable \u003d true)\n |-- AireAcondicionado: integer (nullable \u003d true)\n |-- Ejes: integer (nullable \u003d true)\n |-- Estado: string (nullable \u003d true)\n |-- Combustible: string (nullable \u003d true)\n |-- Transmision: string (nullable \u003d true)\n |-- Um: integer (nullable \u003d true)\n |-- PesoCategoria: integer (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d0"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d1"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600031614469_1618667407",
+      "id": "paragraph_1600031614469_1618667407",
+      "dateCreated": "2020-09-13 16:13:34.469",
+      "dateStarted": "2020-09-13 17:28:33.429",
+      "dateFinished": "2020-09-13 17:28:38.849",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndetalles.show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:28:59.592",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+--------------+----------------+------+--------------+-----------+------------------+-----------------+----+----------+----------+-----+---------+--------+--------+----------+------------+------------------+--------------+-------+-----------------+----+------+-----------+-----------+---+-------------+\n|Novedad|         Marca|           Clase|Codigo|Homologocodigo|Referencia1|       Referencia2|      Referencia3|Peso|IdServicio|  Servicio| Bcpp|Importado|Potencia|TipoCaja|Cilindraje|Nacionalidad|CapacidadPasajeros|CapacidadCarga|Puertas|AireAcondicionado|Ejes|Estado|Combustible|Transmision| Um|PesoCategoria|\n+-------+--------------+----------------+------+--------------+-----------+------------------+-----------------+----+----------+----------+-----+---------+--------+--------+----------+------------+------------------+--------------+-------+-----------------+----+------+-----------+-----------+---+-------------+\n|      M|         ALEKO|       AUTOMOVIL|101001|          null|       2141|               1.6|   MT 1600CC TAXI|1380|         2|   Publico|15300|        1|      82|      MT|      1570|         RUS|                 5|             0|      5|                0|   2|ACTIVO|        GSL|        4X2|  0|            1|\n|      A|AMERICAN MOTOR|         CAMPERO|208003|          null|   WRANGLER|               4.2|    MT 4200CC CAB|1100|         1|Particular|90500|        1|     120|      MT|      2400|         USA|                 5|             0|      3|                1|   2|ACTIVO|        GSL|        4X4|  0|            1|\n|      A|AMERICAN MOTOR|         CAMPERO|208004|          null|   WRANGLER|               4.2|MT 2500CC CARPADO|1100|         1|Particular|95000|        1|     120|      MT|      2400|         USA|                 5|             0|      3|                1|   2|ACTIVO|        GSL|        4X4|  0|            1|\n|      A|AMERICAN MOTOR|CAMIONETA PASAJ.|206001|          null|      EAGLE|            SUMMIT|  AT 2400CC LX 4P|   0|         1|Particular|54800|        1|       0|      AT|      2351|         USA|                 5|             0|      5|                0|   2|ACTIVO|        GSL|        4X2|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319001|          null|PICK-UP VAN|               150|         MT 150CC| 283|         1|Particular|11000|        1|       7|      MT|       146|         IND|                 2|             0|      2|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319003|          null|PICK-UP VAN|               175|         MT 175CC| 305|         1|Particular|11800|        1|       8|      MT|       174|         IND|                 3|             0|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319004|          null|PICK-UP VAN|               400|     MT 400CC DSL| 353|         1|Particular|14800|        1|       7|      MT|       417|         IND|                 3|             0|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319005|          null|  CAMELLITO|      FURGON [ASL]|         MT 175CC| 350|         1|Particular|15400|        1|       6|      MT|       174|         IND|                 3|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319006|          null|  CAMELLITO|            FURGON|         MT 175CC| 350|         1|Particular|12800|        1|       6|      MT|       174|         IND|                 3|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319009|          null|  CAMELLITO|            CHASIS|         MT 175CC| 305|         1|Particular| 9800|        1|       8|      MT|       174|         IND|                 1|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319010|          null|  CAMELLITO|           ESTACAS|         MT 175CC| 305|         1|Particular|11600|        1|       8|      MT|       174|         IND|                 1|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319011|          null|  CAMELLITO|  ESTACAS ALUMINIO|         MT 175CC| 305|         1|Particular|14300|        1|       8|      MT|       174|         IND|                 1|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319012|          null|  CAMELLITO|   FURGON ALUMINIO|         MT 175CC| 305|         1|Particular|12800|        1|       8|      MT|       174|         IND|                 1|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319013|          null|  CAMELLITO|           REPARTO|         MT 175CC| 305|         1|Particular|12100|        1|       8|      MT|       174|         IND|                 1|           325|      2|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319014|          null|PICK-UP VAN|               450|     MT 450CC DSL| 398|         1|Particular|14400|        1|       7|      MT|       447|         IND|                 2|           432|      2|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319018|          null|  CAMELLITO|RE600 FURGON [ASL]|     MT 448CC DSL| 398|         1|Particular|18600|        1|       8|      MT|       416|         IND|                 2|           600|      2|                0|   2|ACTIVO|        DSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319019|          null|  CAMELLITO|    RE205 D FURGON|         MT 199CC| 300|         1|Particular|19100|        1|      10|      MT|       199|         IND|                 2|           342|      2|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      M|        AUTECO|       MOTOCARRO|319021|          null|  RE MAXIMA|      CARGO PLATON|         MT 200CC| 475|         1|Particular|22600|        1|      10|      MT|       236|         IND|                 2|             0|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319007|          null|  CAMELLITO|            WILLYS|         MT 175CC| 305|         1|Particular|13100|        1|       8|      MT|       174|         IND|                 3|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n|      A|        AUTECO|       MOTOCARRO|319008|          null|  CAMELLITO|             CHIVA|         MT 175CC| 305|         1|Particular|15400|        1|       8|      MT|       174|         IND|                 3|           325|      0|                0|   2|ACTIVO|        GSL|        3X1|  0|            1|\n+-------+--------------+----------------+------+--------------+-----------+------------------+-----------------+----+----------+----------+-----+---------+--------+--------+----------+------------+------------------+--------------+-------+-----------------+----+------+-----------+-----------+---+-------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d2"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600036126378_1186086896",
+      "id": "paragraph_1600036126378_1186086896",
+      "dateCreated": "2020-09-13 17:28:46.378",
+      "dateStarted": "2020-09-13 17:28:59.608",
+      "dateFinished": "2020-09-13 17:29:00.560",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\nmodelos \u003d detalles.select(\"Codigo\", \"Marca\", \"Referencia1\", \"Referencia2\")\n\nmodelos.printSchema()\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:32:57.279",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Codigo: integer (nullable \u003d true)\n |-- Marca: string (nullable \u003d true)\n |-- Referencia1: string (nullable \u003d true)\n |-- Referencia2: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600030868022_862138698",
+      "id": "paragraph_1600030868022_862138698",
+      "dateCreated": "2020-09-13 16:01:08.023",
+      "dateStarted": "2020-09-13 17:32:57.288",
+      "dateFinished": "2020-09-13 17:32:57.377",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nmodelos.show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:33:00.950",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------+--------------+-----------+------------------+\n|Codigo|         Marca|Referencia1|       Referencia2|\n+------+--------------+-----------+------------------+\n|101001|         ALEKO|       2141|               1.6|\n|208003|AMERICAN MOTOR|   WRANGLER|               4.2|\n|208004|AMERICAN MOTOR|   WRANGLER|               4.2|\n|206001|AMERICAN MOTOR|      EAGLE|            SUMMIT|\n|319001|        AUTECO|PICK-UP VAN|               150|\n|319003|        AUTECO|PICK-UP VAN|               175|\n|319004|        AUTECO|PICK-UP VAN|               400|\n|319005|        AUTECO|  CAMELLITO|      FURGON [ASL]|\n|319006|        AUTECO|  CAMELLITO|            FURGON|\n|319009|        AUTECO|  CAMELLITO|            CHASIS|\n|319010|        AUTECO|  CAMELLITO|           ESTACAS|\n|319011|        AUTECO|  CAMELLITO|  ESTACAS ALUMINIO|\n|319012|        AUTECO|  CAMELLITO|   FURGON ALUMINIO|\n|319013|        AUTECO|  CAMELLITO|           REPARTO|\n|319014|        AUTECO|PICK-UP VAN|               450|\n|319018|        AUTECO|  CAMELLITO|RE600 FURGON [ASL]|\n|319019|        AUTECO|  CAMELLITO|    RE205 D FURGON|\n|319021|        AUTECO|  RE MAXIMA|      CARGO PLATON|\n|319007|        AUTECO|  CAMELLITO|            WILLYS|\n|319008|        AUTECO|  CAMELLITO|             CHIVA|\n+------+--------------+-----------+------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d6"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600036225088_779178795",
+      "id": "paragraph_1600036225088_779178795",
+      "dateCreated": "2020-09-13 17:30:25.088",
+      "dateStarted": "2020-09-13 17:33:00.961",
+      "dateFinished": "2020-09-13 17:33:01.263",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\n\nmodelo_ford_mustang \u003d modelos.filter(\"Marca \u003d\u003d \u0027FORD\u0027 AND Referencia1 LIKE \u0027MUSTANG%\u0027\")\nmodelo_ford_mustang.show(100)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:45:47.132",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-----+--------------+--------------------+\n| Codigo|Marca|   Referencia1|         Referencia2|\n+-------+-----+--------------+--------------------+\n|3001120| FORD|   MUSTANG [5]|      GT CONVERTIBLE|\n|3001123| FORD|   MUSTANG [5]|         CONVERTIBLE|\n|3001127| FORD|MUSTANG [5] FL|      GT CONVERTIBLE|\n|3001144| FORD|MUSTANG [5] FL|      V6 CONVERTIBLE|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|\n|3001151| FORD|   MUSTANG [6]|      V6 CONVERTIBLE|\n|3001156| FORD|   MUSTANG [6]|         CONVERTIBLE|\n|3001018| FORD|   MUSTANG [3]|               COUPE|\n|3001037| FORD|   MUSTANG [4]|               COUPE|\n|3001077| FORD|MUSTANG [4] FL|            GT COUPE|\n|3001102| FORD|   MUSTANG [4]|               COUPE|\n|3001118| FORD|   MUSTANG [5]|               COUPE|\n|3001122| FORD|   MUSTANG [5]|            GT COUPE|\n|3001129| FORD|MUSTANG [5] FL|          GT PREMIUM|\n|3001133| FORD|MUSTANG [5] FL|                  V6|\n|3001141| FORD|MUSTANG [5] FL|                  V6|\n|3001142| FORD|MUSTANG [5] FL|        SHELBY GT500|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|\n|3001147| FORD|   MUSTANG [5]|            GT COUPE|\n|3001153| FORD|   MUSTANG [6]|               COUPE|\n|3001157| FORD|   MUSTANG [6]|        SHELBY GT350|\n+-------+-----+--------------+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d29"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600030756672_720618517",
+      "id": "paragraph_1600030756672_720618517",
+      "dateCreated": "2020-09-13 15:59:16.672",
+      "dateStarted": "2020-09-13 17:45:47.143",
+      "dateFinished": "2020-09-13 17:45:47.454",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\nprecios \u003d spark.read.option(\"header\", \"true\").option(\"inferSchema\", \"true\").csv(\"/home/juan/workspace/datasets/kaggle/vehicles/precios\")\n\nprecios.printSchema()\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:41:13.484",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Codigo: integer (nullable \u003d true)\n |-- Modelo: integer (nullable \u003d true)\n |-- Valor: integer (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d11"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d12"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600036830449_431429753",
+      "id": "paragraph_1600036830449_431429753",
+      "dateCreated": "2020-09-13 17:40:30.449",
+      "dateStarted": "2020-09-13 17:41:13.487",
+      "dateFinished": "2020-09-13 17:41:14.724",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\nprecios.show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:46:19.537",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------+------+-----+\n|Codigo|Modelo|Valor|\n+------+------+-----+\n|101001|  1970|    0|\n|101001|  1971|    0|\n|101001|  1972|    0|\n|101001|  1973|    0|\n|101001|  1974|    0|\n|101001|  1975|    0|\n|101001|  1976|    0|\n|101001|  1977|    0|\n|101001|  1978|    0|\n|101001|  1979|    0|\n|101001|  1980|    0|\n|101001|  1981|    0|\n|101001|  1982|    0|\n|101001|  1983|    0|\n|101001|  1984|    0|\n|101001|  1985|    0|\n|101001|  1986|    0|\n|101001|  1987|    0|\n|101001|  1988|    0|\n|101001|  1989|    0|\n+------+------+-----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d30"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600037173260_523083418",
+      "id": "paragraph_1600037173260_523083418",
+      "dateCreated": "2020-09-13 17:46:13.261",
+      "dateStarted": "2020-09-13 17:46:19.543",
+      "dateFinished": "2020-09-13 17:46:19.913",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\nprecios_mustang \u003d modelo_ford_mustang.join(precios, modelo_ford_mustang.Codigo \u003d\u003d precios.Codigo).filter(\"Valor \u003e 0\").orderBy(\"Valor\", ascending\u003dFalse)\nprecios_mustang.show(100)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 17:46:42.904",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-----+--------------+--------------------+-------+------+------+\n| Codigo|Marca|   Referencia1|         Referencia2| Codigo|Modelo| Valor|\n+-------+-----+--------------+--------------------+-------+------+------+\n|3001157| FORD|   MUSTANG [6]|        SHELBY GT350|3001157|  2021|260000|\n|3001157| FORD|   MUSTANG [6]|        SHELBY GT350|3001157|  2019|233100|\n|3001157| FORD|   MUSTANG [6]|        SHELBY GT350|3001157|  2018|213000|\n|3001142| FORD|MUSTANG [5] FL|        SHELBY GT500|3001142|  2021|206000|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|3001150|  2021|190000|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|3001143|  2021|190000|\n|3001142| FORD|MUSTANG [5] FL|        SHELBY GT500|3001142|  2014|185000|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|3001150|  2020|159800|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|3001143|  2019|158500|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|3001150|  2019|156500|\n|3001156| FORD|   MUSTANG [6]|         CONVERTIBLE|3001156|  2021|156300|\n|3001127| FORD|MUSTANG [5] FL|      GT CONVERTIBLE|3001127|  2021|150000|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|3001143|  2018|144800|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|3001150|  2018|143000|\n|3001120| FORD|   MUSTANG [5]|      GT CONVERTIBLE|3001120|  2021|133500|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|3001143|  2017|132300|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|3001150|  2017|130700|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|3001143|  2016|120900|\n|3001150| FORD|   MUSTANG [6]|GT PREMIUM CONVER...|3001150|  2016|119400|\n|3001122| FORD|   MUSTANG [5]|            GT COUPE|3001122|  2021|117800|\n|3001147| FORD|   MUSTANG [5]|            GT COUPE|3001147|  2021|117800|\n|3001156| FORD|   MUSTANG [6]|         CONVERTIBLE|3001156|  2019|114900|\n|3001127| FORD|MUSTANG [5] FL|      GT CONVERTIBLE|3001127|  2012|111600|\n|3001143| FORD|   MUSTANG [6]|          GT PREMIUM|3001143|  2015|110500|\n|3001153| FORD|   MUSTANG [6]|               COUPE|3001153|  2021|110000|\n|3001129| FORD|MUSTANG [5] FL|          GT PREMIUM|3001129|  2021|109500|\n|3001151| FORD|   MUSTANG [6]|      V6 CONVERTIBLE|3001151|  2021|108000|\n|3001153| FORD|   MUSTANG [6]|               COUPE|3001153|  2017| 98800|\n|3001129| FORD|MUSTANG [5] FL|          GT PREMIUM|3001129|  2014| 98000|\n|3001156| FORD|   MUSTANG [6]|         CONVERTIBLE|3001156|  2017| 95900|\n|3001129| FORD|MUSTANG [5] FL|          GT PREMIUM|3001129|  2013| 93700|\n|3001118| FORD|   MUSTANG [5]|               COUPE|3001118|  2021| 92800|\n|3001127| FORD|MUSTANG [5] FL|      GT CONVERTIBLE|3001127|  2011| 91000|\n|3001153| FORD|   MUSTANG [6]|               COUPE|3001153|  2015| 90300|\n|3001123| FORD|   MUSTANG [5]|         CONVERTIBLE|3001123|  2021| 89200|\n|3001156| FORD|   MUSTANG [6]|         CONVERTIBLE|3001156|  2016| 87600|\n|3001144| FORD|MUSTANG [5] FL|      V6 CONVERTIBLE|3001144|  2021| 85000|\n|3001151| FORD|   MUSTANG [6]|      V6 CONVERTIBLE|3001151|  2016| 83400|\n|3001077| FORD|MUSTANG [4] FL|            GT COUPE|3001077|  2021| 81300|\n|3001141| FORD|MUSTANG [5] FL|                  V6|3001141|  2021| 76800|\n|3001151| FORD|   MUSTANG [6]|      V6 CONVERTIBLE|3001151|  2015| 76200|\n|3001144| FORD|MUSTANG [5] FL|      V6 CONVERTIBLE|3001144|  2014| 73000|\n|3001102| FORD|   MUSTANG [4]|               COUPE|3001102|  2021| 69200|\n|3001122| FORD|   MUSTANG [5]|            GT COUPE|3001122|  2009| 69000|\n|3001133| FORD|MUSTANG [5] FL|                  V6|3001133|  2021| 68400|\n|3001141| FORD|MUSTANG [5] FL|                  V6|3001141|  2014| 68000|\n|3001037| FORD|   MUSTANG [4]|               COUPE|3001037|  2021| 65100|\n|3001122| FORD|   MUSTANG [5]|            GT COUPE|3001122|  2008| 64300|\n|3001141| FORD|MUSTANG [5] FL|                  V6|3001141|  2013| 63400|\n|3001120| FORD|   MUSTANG [5]|      GT CONVERTIBLE|3001120|  2008| 58200|\n|3001122| FORD|   MUSTANG [5]|            GT COUPE|3001122|  2006| 55900|\n|3001018| FORD|   MUSTANG [3]|               COUPE|3001018|  2021| 55400|\n|3001141| FORD|MUSTANG [5] FL|                  V6|3001141|  2011| 55100|\n|3001147| FORD|   MUSTANG [5]|            GT COUPE|3001147|  2006| 53700|\n|3001147| FORD|   MUSTANG [5]|            GT COUPE|3001147|  2005| 50000|\n|3001133| FORD|MUSTANG [5] FL|                  V6|3001133|  2012| 48600|\n|3001123| FORD|   MUSTANG [5]|         CONVERTIBLE|3001123|  2010| 48400|\n|3001123| FORD|   MUSTANG [5]|         CONVERTIBLE|3001123|  2008| 42000|\n|3001118| FORD|   MUSTANG [5]|               COUPE|3001118|  2008| 38800|\n|3001118| FORD|   MUSTANG [5]|               COUPE|3001118|  2007| 36200|\n|3001077| FORD|MUSTANG [4] FL|            GT COUPE|3001077|  2004| 28000|\n|3001077| FORD|MUSTANG [4] FL|            GT COUPE|3001077|  2003| 26100|\n|3001077| FORD|MUSTANG [4] FL|            GT COUPE|3001077|  2002| 24300|\n|3001077| FORD|MUSTANG [4] FL|            GT COUPE|3001077|  2001| 22600|\n|3001102| FORD|   MUSTANG [4]|               COUPE|3001102|  1996| 16400|\n|3001102| FORD|   MUSTANG [4]|               COUPE|3001102|  1995| 15300|\n|3001037| FORD|   MUSTANG [4]|               COUPE|3001037|  1995| 14400|\n|3001037| FORD|   MUSTANG [4]|               COUPE|3001037|  1994| 13400|\n|3001018| FORD|   MUSTANG [3]|               COUPE|3001018|  1981|  4000|\n|3001018| FORD|   MUSTANG [3]|               COUPE|3001018|  1980|  3700|\n|3001018| FORD|   MUSTANG [3]|               COUPE|3001018|  1979|  3400|\n+-------+-----+--------------+--------------------+-------+------+------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d31"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d32"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600036286506_1290871543",
+      "id": "paragraph_1600036286506_1290871543",
+      "dateCreated": "2020-09-13 17:31:26.506",
+      "dateStarted": "2020-09-13 17:46:42.915",
+      "dateFinished": "2020-09-13 17:46:44.267",
+      "status": "FINISHED"
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600036809789_1535756427",
+      "id": "paragraph_1600036809789_1535756427",
+      "dateCreated": "2020-09-13 17:40:09.789",
+      "status": "READY"
+    }
+  ],
+  "name": "PySpark - Demo",
+  "id": "2FJHAXPFV",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
