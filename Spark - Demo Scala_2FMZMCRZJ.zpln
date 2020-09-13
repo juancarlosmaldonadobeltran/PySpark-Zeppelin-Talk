@@ -1,0 +1,327 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n## Pregunta: \n\n¿De de los pacientes que han tenido falla cardíaca cuantos tienen más de 45 años?\n\n## Dataset: \n\nDataset: https://www.kaggle.com/andrewmvd/heart-failure-clinical-data\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 18:40:19.253",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePregunta:\u003c/h2\u003e\n\u003cp\u003e¿De de los pacientes que han tenido falla cardíaca cuantos tienen más de 45 años?\u003c/p\u003e\n\u003ch2\u003eDataset:\u003c/h2\u003e\n\u003cp\u003eDataset: \u003ca href\u003d\"https://www.kaggle.com/andrewmvd/heart-failure-clinical-data\"\u003ehttps://www.kaggle.com/andrewmvd/heart-failure-clinical-data\u003c/a\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600039413114_562349644",
+      "id": "paragraph_1600039413114_562349644",
+      "dateCreated": "2020-09-13 18:23:33.114",
+      "dateStarted": "2020-09-13 18:40:19.254",
+      "dateFinished": "2020-09-13 18:40:19.273",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val records \u003d spark.read.option(\"header\", \"true\").option(\"inferSchema\", \"true\").csv(\"/home/juan/workspace/datasets/kaggle/heart_failure_clinical_records\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 18:42:49.493",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mrecords\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [age: double, anaemia: int ... 11 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d43"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d44"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600040380972_886327326",
+      "id": "paragraph_1600040380972_886327326",
+      "dateCreated": "2020-09-13 18:39:40.972",
+      "dateStarted": "2020-09-13 18:42:49.498",
+      "dateFinished": "2020-09-13 18:42:50.317",
+      "status": "FINISHED"
+    },
+    {
+      "text": "records.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 18:43:29.632",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- age: double (nullable \u003d true)\n |-- anaemia: integer (nullable \u003d true)\n |-- creatinine_phosphokinase: integer (nullable \u003d true)\n |-- diabetes: integer (nullable \u003d true)\n |-- ejection_fraction: integer (nullable \u003d true)\n |-- high_blood_pressure: integer (nullable \u003d true)\n |-- platelets: double (nullable \u003d true)\n |-- serum_creatinine: double (nullable \u003d true)\n |-- serum_sodium: integer (nullable \u003d true)\n |-- sex: integer (nullable \u003d true)\n |-- smoking: integer (nullable \u003d true)\n |-- time: integer (nullable \u003d true)\n |-- DEATH_EVENT: integer (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600040569498_2011011455",
+      "id": "paragraph_1600040569498_2011011455",
+      "dateCreated": "2020-09-13 18:42:49.498",
+      "dateStarted": "2020-09-13 18:43:29.643",
+      "dateFinished": "2020-09-13 18:43:30.121",
+      "status": "FINISHED"
+    },
+    {
+      "text": "records.show",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 18:44:04.464",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+-------+------------------------+--------+-----------------+-------------------+---------+----------------+------------+---+-------+----+-----------+\n| age|anaemia|creatinine_phosphokinase|diabetes|ejection_fraction|high_blood_pressure|platelets|serum_creatinine|serum_sodium|sex|smoking|time|DEATH_EVENT|\n+----+-------+------------------------+--------+-----------------+-------------------+---------+----------------+------------+---+-------+----+-----------+\n|75.0|      0|                     582|       0|               20|                  1| 265000.0|             1.9|         130|  1|      0|   4|          1|\n|55.0|      0|                    7861|       0|               38|                  0|263358.03|             1.1|         136|  1|      0|   6|          1|\n|65.0|      0|                     146|       0|               20|                  0| 162000.0|             1.3|         129|  1|      1|   7|          1|\n|50.0|      1|                     111|       0|               20|                  0| 210000.0|             1.9|         137|  1|      0|   7|          1|\n|65.0|      1|                     160|       1|               20|                  0| 327000.0|             2.7|         116|  0|      0|   8|          1|\n|90.0|      1|                      47|       0|               40|                  1| 204000.0|             2.1|         132|  1|      1|   8|          1|\n|75.0|      1|                     246|       0|               15|                  0| 127000.0|             1.2|         137|  1|      0|  10|          1|\n|60.0|      1|                     315|       1|               60|                  0| 454000.0|             1.1|         131|  1|      1|  10|          1|\n|65.0|      0|                     157|       0|               65|                  0|263358.03|             1.5|         138|  0|      0|  10|          1|\n|80.0|      1|                     123|       0|               35|                  1| 388000.0|             9.4|         133|  1|      1|  10|          1|\n|75.0|      1|                      81|       0|               38|                  1| 368000.0|             4.0|         131|  1|      1|  10|          1|\n|62.0|      0|                     231|       0|               25|                  1| 253000.0|             0.9|         140|  1|      1|  10|          1|\n|45.0|      1|                     981|       0|               30|                  0| 136000.0|             1.1|         137|  1|      0|  11|          1|\n|50.0|      1|                     168|       0|               38|                  1| 276000.0|             1.1|         137|  1|      0|  11|          1|\n|49.0|      1|                      80|       0|               30|                  1| 427000.0|             1.0|         138|  0|      0|  12|          0|\n|82.0|      1|                     379|       0|               50|                  0|  47000.0|             1.3|         136|  1|      0|  13|          1|\n|87.0|      1|                     149|       0|               38|                  0| 262000.0|             0.9|         140|  1|      0|  14|          1|\n|45.0|      0|                     582|       0|               14|                  0| 166000.0|             0.8|         127|  1|      0|  14|          1|\n|70.0|      1|                     125|       0|               25|                  1| 237000.0|             1.0|         140|  0|      0|  15|          1|\n|48.0|      1|                     582|       1|               55|                  0|  87000.0|             1.9|         121|  0|      0|  15|          1|\n+----+-------+------------------------+--------+-----------------+-------------------+---------+----------------+------------+---+-------+----+-----------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d45"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600040609636_1954558691",
+      "id": "paragraph_1600040609636_1954558691",
+      "dateCreated": "2020-09-13 18:43:29.636",
+      "dateStarted": "2020-09-13 18:44:04.481",
+      "dateFinished": "2020-09-13 18:44:05.323",
+      "status": "FINISHED"
+    },
+    {
+      "text": "records.count",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 18:44:46.045",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres4\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 299\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d46"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600040644476_1741599141",
+      "id": "paragraph_1600040644476_1741599141",
+      "dateCreated": "2020-09-13 18:44:04.476",
+      "dateStarted": "2020-09-13 18:44:46.055",
+      "dateFinished": "2020-09-13 18:44:46.998",
+      "status": "FINISHED"
+    },
+    {
+      "text": "records.filter(\"age \u003e 45\").count",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-13 18:47:23.912",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres15\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 262\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d55"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600040686052_1981837229",
+      "id": "paragraph_1600040686052_1981837229",
+      "dateCreated": "2020-09-13 18:44:46.053",
+      "dateStarted": "2020-09-13 18:47:23.929",
+      "dateFinished": "2020-09-13 18:47:24.498",
+      "status": "FINISHED"
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600040708705_1884382932",
+      "id": "paragraph_1600040708705_1884382932",
+      "dateCreated": "2020-09-13 18:45:08.705",
+      "status": "READY"
+    }
+  ],
+  "name": "Spark - Demo Scala",
+  "id": "2FMZMCRZJ",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
