@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n## Pregunta: \n\n¿De de los pacientes que han tenido falla cardíaca cuantos tienen más de 45 años?\n\n## Dataset: \n\nDataset: https://www.kaggle.com/andrewmvd/heart-failure-clinical-data\n",
       "user": "anonymous",
-      "dateUpdated": "2020-09-13 18:40:19.253",
+      "dateUpdated": "2020-09-14 11:00:47.019",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,14 +38,14 @@
       "jobName": "paragraph_1600039413114_562349644",
       "id": "paragraph_1600039413114_562349644",
       "dateCreated": "2020-09-13 18:23:33.114",
-      "dateStarted": "2020-09-13 18:40:19.254",
-      "dateFinished": "2020-09-13 18:40:19.273",
+      "dateStarted": "2020-09-14 11:00:47.024",
+      "dateFinished": "2020-09-14 11:00:47.034",
       "status": "FINISHED"
     },
     {
       "text": "val records \u003d spark.read.option(\"header\", \"true\").option(\"inferSchema\", \"true\").csv(\"/home/juan/workspace/datasets/kaggle/heart_failure_clinical_records\")",
       "user": "anonymous",
-      "dateUpdated": "2020-09-13 18:42:49.493",
+      "dateUpdated": "2020-09-14 11:00:47.122",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -81,10 +81,10 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d43"
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d72"
             },
             {
-              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d44"
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d73"
             }
           ],
           "interpreterSettingId": "spark"
@@ -94,14 +94,14 @@
       "jobName": "paragraph_1600040380972_886327326",
       "id": "paragraph_1600040380972_886327326",
       "dateCreated": "2020-09-13 18:39:40.972",
-      "dateStarted": "2020-09-13 18:42:49.498",
-      "dateFinished": "2020-09-13 18:42:50.317",
+      "dateStarted": "2020-09-14 11:00:47.125",
+      "dateFinished": "2020-09-14 11:00:47.832",
       "status": "FINISHED"
     },
     {
       "text": "records.printSchema",
       "user": "anonymous",
-      "dateUpdated": "2020-09-13 18:43:29.632",
+      "dateUpdated": "2020-09-14 11:00:47.926",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -134,14 +134,14 @@
       "jobName": "paragraph_1600040569498_2011011455",
       "id": "paragraph_1600040569498_2011011455",
       "dateCreated": "2020-09-13 18:42:49.498",
-      "dateStarted": "2020-09-13 18:43:29.643",
-      "dateFinished": "2020-09-13 18:43:30.121",
+      "dateStarted": "2020-09-14 11:00:47.929",
+      "dateFinished": "2020-09-14 11:00:48.146",
       "status": "FINISHED"
     },
     {
       "text": "records.show",
       "user": "anonymous",
-      "dateUpdated": "2020-09-13 18:44:04.464",
+      "dateUpdated": "2020-09-14 11:00:48.229",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -177,7 +177,7 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d45"
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d74"
             }
           ],
           "interpreterSettingId": "spark"
@@ -187,14 +187,14 @@
       "jobName": "paragraph_1600040609636_1954558691",
       "id": "paragraph_1600040609636_1954558691",
       "dateCreated": "2020-09-13 18:43:29.636",
-      "dateStarted": "2020-09-13 18:44:04.481",
-      "dateFinished": "2020-09-13 18:44:05.323",
+      "dateStarted": "2020-09-14 11:00:48.247",
+      "dateFinished": "2020-09-14 11:00:48.529",
       "status": "FINISHED"
     },
     {
       "text": "records.count",
       "user": "anonymous",
-      "dateUpdated": "2020-09-13 18:44:46.045",
+      "dateUpdated": "2020-09-14 11:00:48.537",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -217,7 +217,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u001b[1m\u001b[34mres4\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 299\n"
+            "data": "\u001b[1m\u001b[34mres18\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 299\n"
           }
         ]
       },
@@ -230,7 +230,7 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d46"
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d75"
             }
           ],
           "interpreterSettingId": "spark"
@@ -240,14 +240,14 @@
       "jobName": "paragraph_1600040644476_1741599141",
       "id": "paragraph_1600040644476_1741599141",
       "dateCreated": "2020-09-13 18:44:04.476",
-      "dateStarted": "2020-09-13 18:44:46.055",
-      "dateFinished": "2020-09-13 18:44:46.998",
+      "dateStarted": "2020-09-14 11:00:48.545",
+      "dateFinished": "2020-09-14 11:00:48.971",
       "status": "FINISHED"
     },
     {
       "text": "records.filter(\"age \u003e 45\").count",
       "user": "anonymous",
-      "dateUpdated": "2020-09-13 18:47:23.912",
+      "dateUpdated": "2020-09-14 11:00:49.052",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -270,7 +270,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u001b[1m\u001b[34mres15\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 262\n"
+            "data": "\u001b[1m\u001b[34mres19\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 262\n"
           }
         ]
       },
@@ -283,7 +283,7 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d55"
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d76"
             }
           ],
           "interpreterSettingId": "spark"
@@ -293,13 +293,26 @@
       "jobName": "paragraph_1600040686052_1981837229",
       "id": "paragraph_1600040686052_1981837229",
       "dateCreated": "2020-09-13 18:44:46.053",
-      "dateStarted": "2020-09-13 18:47:23.929",
-      "dateFinished": "2020-09-13 18:47:24.498",
+      "dateStarted": "2020-09-14 11:00:49.056",
+      "dateFinished": "2020-09-14 11:00:49.474",
       "status": "FINISHED"
     },
     {
       "user": "anonymous",
-      "config": {},
+      "dateUpdated": "2020-09-14 11:00:49.556",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -310,7 +323,7 @@
       "jobName": "paragraph_1600040708705_1884382932",
       "id": "paragraph_1600040708705_1884382932",
       "dateCreated": "2020-09-13 18:45:08.705",
-      "status": "READY"
+      "status": "FINISHED"
     }
   ],
   "name": "Spark - Demo Scala",
@@ -323,5 +336,7 @@
   "config": {
     "isZeppelinNotebookCronEnable": false
   },
-  "info": {}
+  "info": {
+    "isRunning": true
+  }
 }
