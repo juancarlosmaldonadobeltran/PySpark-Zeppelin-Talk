@@ -1,0 +1,2401 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n## Pregunta: \n\n¿Como fueron los viajes en taxi que ocurrieron en New York durante enero de 2020?\n\n## Dataset: \n\nhttps://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\n\n## Subset:\n\nhttps://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv (593 MB)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 08:52:50.157",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePregunta:\u003c/h2\u003e\n\u003cp\u003e¿Como fueron los viajes en taxi que ocurrieron en New York durante enero de 2020?\u003c/p\u003e\n\u003ch2\u003eDataset:\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\"\u003ehttps://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003eSubset:\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv\"\u003ehttps://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv\u003c/a\u003e (593 MB)\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600099713469_183616747",
+      "id": "paragraph_1600099713469_183616747",
+      "dateCreated": "2020-09-14 11:08:33.469",
+      "dateStarted": "2020-09-15 07:36:09.979",
+      "dateFinished": "2020-09-15 07:36:11.208",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Ruta del dataset en el sistema de archivos local",
+      "text": "%pyspark\n\ndataset_path \u003d \"/home/juan/workspace/datasets/taxi_trips/\"\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:36:11.288",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600115708333_750877330",
+      "id": "paragraph_1600115708333_750877330",
+      "dateCreated": "2020-09-14 15:35:08.333",
+      "dateStarted": "2020-09-15 07:36:11.316",
+      "dateFinished": "2020-09-15 07:36:11.358",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Lectura del dataset (Lazy evaluation)",
+      "text": "%pyspark\n\nfrom pyspark.sql.functions import col\n\ndiff_in_sec_col \u003d col(\"tpep_dropoff_datetime\").cast(\"long\") - col(\"tpep_pickup_datetime\").cast(\"long\")\n\ntrips \u003d spark.read.option(\"header\", \"true\").option(\"inferSchema\", \"true\").csv(dataset_path + \"yellow_tripdata_2020-01.csv\").withColumn(\"duration_in_minutes\", diff_in_sec_col / 60)\n\ntype(trips)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:36:11.409",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cclass \u0027pyspark.sql.dataframe.DataFrame\u0027\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d0"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d1"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600101095707_80320915",
+      "id": "paragraph_1600101095707_80320915",
+      "dateCreated": "2020-09-14 11:31:35.707",
+      "dateStarted": "2020-09-15 07:36:11.420",
+      "dateFinished": "2020-09-15 07:37:06.057",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Esquema del dataset",
+      "text": "%pyspark\n\ntrips.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:37:06.079",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- VendorID: integer (nullable \u003d true)\n |-- tpep_pickup_datetime: timestamp (nullable \u003d true)\n |-- tpep_dropoff_datetime: timestamp (nullable \u003d true)\n |-- passenger_count: integer (nullable \u003d true)\n |-- trip_distance: double (nullable \u003d true)\n |-- RatecodeID: integer (nullable \u003d true)\n |-- store_and_fwd_flag: string (nullable \u003d true)\n |-- PULocationID: integer (nullable \u003d true)\n |-- DOLocationID: integer (nullable \u003d true)\n |-- payment_type: integer (nullable \u003d true)\n |-- fare_amount: double (nullable \u003d true)\n |-- extra: double (nullable \u003d true)\n |-- mta_tax: double (nullable \u003d true)\n |-- tip_amount: double (nullable \u003d true)\n |-- tolls_amount: double (nullable \u003d true)\n |-- improvement_surcharge: double (nullable \u003d true)\n |-- total_amount: double (nullable \u003d true)\n |-- congestion_surcharge: double (nullable \u003d true)\n |-- duration_in_minutes: double (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600101160802_842557749",
+      "id": "paragraph_1600101160802_842557749",
+      "dateCreated": "2020-09-14 11:32:40.802",
+      "dateStarted": "2020-09-15 07:37:06.108",
+      "dateFinished": "2020-09-15 07:37:06.277",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Tabla de viajes (primeros registros)",
+      "text": "%pyspark\n\nz.show(trips.limit(5))",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:37:06.288",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "VendorID0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "tpep_pickup_datetime1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "tpep_dropoff_datetime2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "passenger_count3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "trip_distance4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "RatecodeID5",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "store_and_fwd_flag6",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "PULocationID7",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "DOLocationID8",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "payment_type9",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "fare_amount10",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "extra11",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "mta_tax12",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "tip_amount13",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "tolls_amount14",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "improvement_surcharge15",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "total_amount16",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "congestion_surcharge17",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "VendorID": "string",
+                      "tpep_pickup_datetime": "string",
+                      "tpep_dropoff_datetime": "string",
+                      "passenger_count": "string",
+                      "trip_distance": "string",
+                      "RatecodeID": "string",
+                      "store_and_fwd_flag": "string",
+                      "PULocationID": "string",
+                      "DOLocationID": "string",
+                      "payment_type": "string",
+                      "fare_amount": "string",
+                      "extra": "string",
+                      "mta_tax": "string",
+                      "tip_amount": "string",
+                      "tolls_amount": "string",
+                      "improvement_surcharge": "string",
+                      "total_amount": "string",
+                      "congestion_surcharge": "string",
+                      "duration_in_minutes": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "VendorID\ttpep_pickup_datetime\ttpep_dropoff_datetime\tpassenger_count\ttrip_distance\tRatecodeID\tstore_and_fwd_flag\tPULocationID\tDOLocationID\tpayment_type\tfare_amount\textra\tmta_tax\ttip_amount\ttolls_amount\timprovement_surcharge\ttotal_amount\tcongestion_surcharge\tduration_in_minutes\n1\t2020-01-01 00:28:15.0\t2020-01-01 00:33:03.0\t1\t1.2\t1\tN\t238\t239\t1\t6.0\t3.0\t0.5\t1.47\t0.0\t0.3\t11.27\t2.5\t4.8\n1\t2020-01-01 00:35:39.0\t2020-01-01 00:43:04.0\t1\t1.2\t1\tN\t239\t238\t1\t7.0\t3.0\t0.5\t1.5\t0.0\t0.3\t12.3\t2.5\t7.416666666666667\n1\t2020-01-01 00:47:41.0\t2020-01-01 00:53:52.0\t1\t0.6\t1\tN\t238\t238\t1\t6.0\t3.0\t0.5\t1.0\t0.0\t0.3\t10.8\t2.5\t6.183333333333334\n1\t2020-01-01 00:55:23.0\t2020-01-01 01:00:14.0\t1\t0.8\t1\tN\t238\t151\t1\t5.5\t0.5\t0.5\t1.36\t0.0\t0.3\t8.16\t0.0\t4.85\n2\t2020-01-01 00:01:58.0\t2020-01-01 00:04:16.0\t1\t0.0\t1\tN\t193\t193\t2\t3.5\t0.5\t0.5\t0.0\t0.0\t0.3\t4.8\t0.0\t2.3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d2"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600101264745_1750647005",
+      "id": "paragraph_1600101264745_1750647005",
+      "dateCreated": "2020-09-14 11:34:24.745",
+      "dateStarted": "2020-09-15 07:37:06.336",
+      "dateFinished": "2020-09-15 07:37:07.279",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Conteo de viajes",
+      "text": "%pyspark\n\ntrips.count()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:37:07.325",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "6405008\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d3"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600108446155_1469448243",
+      "id": "paragraph_1600108446155_1469448243",
+      "dateCreated": "2020-09-14 13:34:06.155",
+      "dateStarted": "2020-09-15 07:37:07.336",
+      "dateFinished": "2020-09-15 07:37:12.001",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Descripción del dataset",
+      "text": "%pyspark\n\nz.show(trips.describe(\"passenger_count\", \"trip_distance\", \"fare_amount\", \"extra\", \"mta_tax\", \"tip_amount\", \"tolls_amount\", \"improvement_surcharge\", \"total_amount\", \"congestion_surcharge\", \"duration_in_minutes\"))\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:37:12.068",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "summary": "string",
+                      "passenger_count": "string",
+                      "trip_distance": "string",
+                      "fare_amount": "string",
+                      "extra": "string",
+                      "mta_tax": "string",
+                      "tip_amount": "string",
+                      "tolls_amount": "string",
+                      "improvement_surcharge": "string",
+                      "total_amount": "string",
+                      "congestion_surcharge": "string",
+                      "duration_in_minutes": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "summary",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "passenger_count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "summary\tpassenger_count\ttrip_distance\tfare_amount\textra\tmta_tax\ttip_amount\ttolls_amount\timprovement_surcharge\ttotal_amount\tcongestion_surcharge\tduration_in_minutes\ncount\t6339567\t6405008\t6405008\t6405008\t6405008\t6405008\t6405008\t6405008\t6405008\t6405008\t6405008\nmean\t1.5153326717739555\t2.9296439333096704\t12.694108119770402\t1.1154564069240867\t0.4923181813356049\t2.1893418306424284\t0.3488395018396178\t0.29798698143013336\t18.663148797207175\t2.275662380125052\t15.950077949422019\nstddev\t1.151594213427812\t83.1591059732504\t12.127295340046542\t1.2600543676256843\t0.07374183753034651\t2.760028392378421\t1.7669781681014358\t0.03385937147802581\t14.757364069214674\t0.735264569260964\t63.229991576404814\nmin\t0\t-30.62\t-1238.0\t-27.0\t-0.5\t-91.0\t-35.74\t-0.3\t-1242.3\t-2.5\t-2770.366666666667\nmax\t9\t210240.07\t4265.0\t113.01\t30.8\t1100.0\t910.5\t0.3\t4268.3\t2.75\t8525.116666666667\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d4"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600108145603_1654403984",
+      "id": "paragraph_1600108145603_1654403984",
+      "dateCreated": "2020-09-14 13:29:05.603",
+      "dateStarted": "2020-09-15 07:37:12.082",
+      "dateFinished": "2020-09-15 07:38:43.504",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Filtrado de valores atípicos y descarte de columnas",
+      "text": "%pyspark\n\n\ncolumns_to_drop \u003d [\"VendorID\", \"tpep_pickup_datetime\", \"tpep_dropoff_datetime\", \"RatecodeID\", \"store_and_fwd_flag\", \"fare_amount\", \"extra\", \"mta_tax\", \"tip_amount\", \"tolls_amount\", \"improvement_surcharge\", \"congestion_surcharge\"]\n\nfiltered_trips \u003d trips.filter(\"passenger_count \u003e\u003d 0 AND trip_distance \u003e\u003d 0 AND fare_amount \u003e\u003d 0 AND extra \u003e\u003d 0 AND mta_tax \u003e\u003d 0 AND tip_amount \u003e\u003d 0 AND tolls_amount \u003e\u003d 0 AND improvement_surcharge \u003e\u003d 0 AND total_amount \u003e\u003d 0 AND congestion_surcharge \u003e\u003d 0 AND duration_in_minutes \u003e\u003d 0 AND duration_in_minutes \u003c 60\").drop(*columns_to_drop)\n\nfiltered_trips.cache()\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:38:43.529",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "DataFrame[passenger_count: int, trip_distance: double, PULocationID: int, DOLocationID: int, payment_type: int, total_amount: double, duration_in_minutes: double]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600101360793_443565624",
+      "id": "paragraph_1600101360793_443565624",
+      "dateCreated": "2020-09-14 11:36:00.793",
+      "dateStarted": "2020-09-15 07:38:43.536",
+      "dateFinished": "2020-09-15 07:38:43.976",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n\nfiltered_trips.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:38:44.037",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- passenger_count: integer (nullable \u003d true)\n |-- trip_distance: double (nullable \u003d true)\n |-- PULocationID: integer (nullable \u003d true)\n |-- DOLocationID: integer (nullable \u003d true)\n |-- payment_type: integer (nullable \u003d true)\n |-- total_amount: double (nullable \u003d true)\n |-- duration_in_minutes: double (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600169591243_949561879",
+      "id": "paragraph_1600169591243_949561879",
+      "dateCreated": "2020-09-15 06:33:11.243",
+      "dateStarted": "2020-09-15 07:38:44.052",
+      "dateFinished": "2020-09-15 07:38:44.105",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Descripción del dataset filtrado",
+      "text": "%pyspark\n\nz.show(filtered_trips.describe(\"passenger_count\", \"trip_distance\", \"total_amount\", \"duration_in_minutes\"))\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:38:44.143",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "summary": "string",
+                      "passenger_count": "string",
+                      "trip_distance": "string",
+                      "total_amount": "string",
+                      "duration_in_minutes": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "summary",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "passenger_count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "summary\tpassenger_count\ttrip_distance\ttotal_amount\tduration_in_minutes\ncount\t6281389\t6281389\t6281389\t6281389\nmean\t1.5147261218816412\t2.7891685342206967\t18.342596513490967\t12.75076253834981\nstddev\t1.1512158874598868\t3.5853927885569616\t13.742464011416914\t9.171819017327666\nmin\t0\t0.0\t0.0\t0.0\nmax\t9\t85.93\t1110.8\t59.983333333333334\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d5"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600109823195_1648323459",
+      "id": "paragraph_1600109823195_1648323459",
+      "dateCreated": "2020-09-14 13:57:03.196",
+      "dateStarted": "2020-09-15 07:38:44.157",
+      "dateFinished": "2020-09-15 07:40:06.289",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Lectura del dataset de zonas de taxis (Lazy evaluation)",
+      "text": "%pyspark\n\ntaxi_zones \u003d spark.read.option(\"header\", \"true\").option(\"inferSchema\", \"true\").csv(dataset_path + \"taxi _zone_lookup.csv\")\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:06.392",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d6"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d7"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600114469945_1132709131",
+      "id": "paragraph_1600114469945_1132709131",
+      "dateCreated": "2020-09-14 15:14:29.945",
+      "dateStarted": "2020-09-15 07:40:06.404",
+      "dateFinished": "2020-09-15 07:40:06.927",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Conteo de zonas de taxis",
+      "text": "%pyspark\n\ntaxi_zones.count()",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:06.999",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "265\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d8"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600115835479_1995824002",
+      "id": "paragraph_1600115835479_1995824002",
+      "dateCreated": "2020-09-14 15:37:15.480",
+      "dateStarted": "2020-09-15 07:40:07.020",
+      "dateFinished": "2020-09-15 07:40:07.292",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Tabla de zonas de taxis (primeros registros)",
+      "text": "%pyspark\n\nz.show(taxi_zones.limit(5))\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:07.305",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "LocationID0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "Borough1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "Zone2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "service_zone3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "LocationID": "string",
+                      "Borough": "string",
+                      "Zone": "string",
+                      "service_zone": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "LocationID\tBorough\tZone\tservice_zone\n1\tEWR\tNewark Airport\tEWR\n2\tQueens\tJamaica Bay\tBoro Zone\n3\tBronx\tAllerton/Pelham Gardens\tBoro Zone\n4\tManhattan\tAlphabet City\tYellow Zone\n5\tStaten Island\tArden Heights\tBoro Zone\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d9"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600115823820_920496554",
+      "id": "paragraph_1600115823820_920496554",
+      "dateCreated": "2020-09-14 15:37:03.820",
+      "dateStarted": "2020-09-15 07:40:07.320",
+      "dateFinished": "2020-09-15 07:40:07.721",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Viajes iniciados por distrito de New York",
+      "text": "%pyspark\n\npickups_by_borough \u003d filtered_trips.select(\"PULocationID\").join(taxi_zones, filtered_trips.PULocationID \u003d\u003d taxi_zones.LocationID).groupby(\"Borough\").count().sort(\"count\", ascending\u003dFalse)\n\nz.show(pickups_by_borough)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:07.812",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Borough": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Borough",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Borough\tcount\nManhattan\t5777842\nQueens\t396582\nBrooklyn\t53363\nUnknown\t46144\nBronx\t6485\nEWR\t745\nStaten Island\t228\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d10"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d11"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600116123290_336426068",
+      "id": "paragraph_1600116123290_336426068",
+      "dateCreated": "2020-09-14 15:42:03.290",
+      "dateStarted": "2020-09-15 07:40:07.824",
+      "dateFinished": "2020-09-15 07:40:14.374",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Viajes finalizados por distrito de New York",
+      "text": "%pyspark\n\ndropoffs_by_borough \u003d filtered_trips.select(\"DOLocationID\").join(taxi_zones, filtered_trips.DOLocationID \u003d\u003d taxi_zones.LocationID).groupby(\"Borough\").count().sort(\"count\", ascending\u003dFalse)\n\nz.show(dropoffs_by_borough)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:14.424",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Borough": "string",
+                      "count": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Borough",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Borough\tcount\nManhattan\t5640683\nQueens\t309233\nBrooklyn\t230962\nUnknown\t52179\nBronx\t35563\nEWR\t11428\nStaten Island\t1341\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d12"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d13"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600116792508_837997774",
+      "id": "paragraph_1600116792508_837997774",
+      "dateCreated": "2020-09-14 15:53:12.508",
+      "dateStarted": "2020-09-15 07:40:14.440",
+      "dateFinished": "2020-09-15 07:40:17.284",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Medios de pago",
+      "text": "%pyspark\n \npayment_methods \u003d sqlContext.createDataFrame([(1, \"Credit Card\"), (2, \"Cash\"), (3, \"No Charge\"), (4, \"Dispute\"), (5, \"Unknown\"), (6, \"Voided trip\")], [\"code\", \"payment_method\"])\n\nz.show(payment_methods)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:17.380",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "code0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "payment_method1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "code": "string",
+                      "payment_method": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "code\tpayment_method\n1\tCredit Card\n2\tCash\n3\tNo Charge\n4\tDispute\n5\tUnknown\n6\tVoided trip\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d14"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d15"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600117345807_473950105",
+      "id": "paragraph_1600117345807_473950105",
+      "dateCreated": "2020-09-14 16:02:25.807",
+      "dateStarted": "2020-09-15 07:40:17.388",
+      "dateFinished": "2020-09-15 07:40:19.134",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Medios de pagos utilizados en viajes",
+      "text": "%pyspark\n\ntrips_by_payment_method \u003d filtered_trips.select(\"payment_type\").join(payment_methods, filtered_trips.payment_type \u003d\u003d payment_methods.code).groupby(\"payment_method\").count().sort(\"count\", ascending\u003dFalse)\n\nz.show(trips_by_payment_method)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:19.205",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "payment_method": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "payment_method\tcount\nCredit Card\t4667121\nCash\t1579468\nNo Charge\t25640\nDispute\t9159\nUnknown\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d16"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600109844429_1904430483",
+      "id": "paragraph_1600109844429_1904430483",
+      "dateCreated": "2020-09-14 13:57:24.429",
+      "dateStarted": "2020-09-15 07:40:19.215",
+      "dateFinished": "2020-09-15 07:40:29.180",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Función para calcular el histograma de una columna de dataframe",
+      "text": "%pyspark\n\ndef get_histogram(df, column, bins):\n    return df.select(column).rdd.flatMap(lambda x: x).histogram(bins)\n    ",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:29.250",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600130500967_1715480211",
+      "id": "paragraph_1600130500967_1715480211",
+      "dateCreated": "2020-09-14 19:41:40.967",
+      "dateStarted": "2020-09-15 07:40:29.256",
+      "dateFinished": "2020-09-15 07:40:29.280",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Totales en USD pagados en cada viaje",
+      "text": "%pyspark\n\nbins, counts \u003d get_histogram(filtered_trips, \"total_amount\", 20)\ntotals \u003d [round(bin, 2) for bin in bins]\nhistrogram_df \u003d sqlContext.createDataFrame(zip(totals, counts), [\"total_amount\", \"frequency\"])\nz.show(histrogram_df)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:40:29.354",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "total_amount": "string",
+                      "frequency": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "xLabelStatus": "default",
+                  "rotate": {
+                    "degree": "-45"
+                  }
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "total_amount",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "frequency",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "total_amount\tfrequency\n0.0\t6060538\n55.54\t214784\n111.08\t4555\n166.62\t1014\n222.16\t260\n277.7\t130\n333.24\t40\n388.78\t27\n444.32\t23\n499.86\t5\n555.4\t3\n610.94\t2\n666.48\t0\n722.02\t3\n777.56\t0\n833.1\t0\n888.64\t2\n944.18\t1\n999.72\t1\n1055.26\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d17"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d18"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d19"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d20"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600130447694_1721003573",
+      "id": "paragraph_1600130447694_1721003573",
+      "dateCreated": "2020-09-14 19:40:47.694",
+      "dateStarted": "2020-09-15 07:40:29.360",
+      "dateFinished": "2020-09-15 07:41:16.713",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Viajes de menos de USD 100",
+      "text": "%pyspark\n\ntrips_under_usd200 \u003d filtered_trips.select(\"total_amount\").filter(\"total_amount \u003c 100\")\n\nbins, counts \u003d get_histogram(trips_under_usd200, \"total_amount\", 20)\ntotals \u003d [round(bin, 2) for bin in bins]\nhistrogram_under_usd200_df \u003d sqlContext.createDataFrame(zip(totals, counts), [\"total_amount\", \"frequency\"])\nz.show(histrogram_under_usd200_df)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:41:16.760",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "total_amount": "string",
+                      "frequency": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "total_amount",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "frequency",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "total_amount\tfrequency\n0.0\t26975\n5.0\t983152\n10.0\t2456501\n14.99\t1319021\n19.99\t581509\n24.99\t266286\n29.99\t142015\n34.99\t92745\n39.98\t76989\n44.98\t60660\n49.98\t44892\n54.98\t35164\n59.98\t38875\n64.97\t38928\n69.97\t62087\n74.97\t27481\n79.97\t7801\n84.97\t4385\n89.96\t3155\n94.96\t2557\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d21"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d22"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d23"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d24"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600140383271_1047466408",
+      "id": "paragraph_1600140383271_1047466408",
+      "dateCreated": "2020-09-14 22:26:23.271",
+      "dateStarted": "2020-09-15 07:41:16.765",
+      "dateFinished": "2020-09-15 07:42:04.460",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Distancias recorridas en Km",
+      "text": "%pyspark\n\nbins, counts \u003d get_histogram(filtered_trips, \"trip_distance\", 20)\ndistances_in_km \u003d [round(bin * 1.60934, 0) for bin in bins]\nhistrogram_distances_in_km_df \u003d sqlContext.createDataFrame(zip(distances_in_km, counts), [\"distances_in_km\", \"frequency\"])\nz.show(histrogram_distances_in_km_df)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:42:04.534",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "distances_in_km": "string",
+                      "frequency": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "distances_in_km",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "frequency",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "distances_in_km\tfrequency\n0.0\t5320469\n7.0\t544449\n14.0\t206161\n21.0\t83449\n28.0\t110217\n35.0\t10434\n41.0\t4471\n48.0\t918\n55.0\t493\n62.0\t178\n69.0\t77\n76.0\t45\n83.0\t15\n90.0\t2\n97.0\t4\n104.0\t5\n111.0\t0\n118.0\t0\n124.0\t1\n131.0\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d25"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d26"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d27"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d28"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600116958652_1333605047",
+      "id": "paragraph_1600116958652_1333605047",
+      "dateCreated": "2020-09-14 15:55:58.652",
+      "dateStarted": "2020-09-15 07:42:04.542",
+      "dateFinished": "2020-09-15 07:42:50.230",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Viajes de menos de 40 Km",
+      "text": "%pyspark\n\ndistance_40km_to_miles \u003d 40 / 1.60934\ntrips_under_40km \u003d filtered_trips.filter(\"trip_distance \u003c {}\".format(distance_40km_to_miles))\n\nbins, counts \u003d get_histogram(trips_under_40km, \"trip_distance\", 20)\ndistances_in_km \u003d [round(bin * 1.60934, 0) for bin in bins]\nhistrogram_distances_under_40km_df \u003d sqlContext.createDataFrame(zip(distances_in_km, counts), [\"distances_in_km\", \"frequency\"])\nz.show(histrogram_distances_under_40km_df)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:42:50.241",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "distances_in_km": "string",
+                      "frequency": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "distances_in_km",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "frequency",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "distances_in_km\tfrequency\n0.0\t2368343\n2.0\t2028989\n4.0\t757026\n6.0\t314608\n8.0\t185526\n10.0\t121781\n12.0\t96122\n14.0\t86403\n16.0\t60613\n18.0\t41660\n20.0\t24346\n22.0\t19974\n24.0\t20081\n26.0\t37446\n28.0\t52567\n30.0\t29276\n32.0\t16799\n34.0\t8077\n36.0\t2875\n38.0\t1604\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d29"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d30"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d31"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d32"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600144975649_569878521",
+      "id": "paragraph_1600144975649_569878521",
+      "dateCreated": "2020-09-14 23:42:55.650",
+      "dateStarted": "2020-09-15 07:42:50.274",
+      "dateFinished": "2020-09-15 07:43:37.198",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Número de pasajeros",
+      "text": "%pyspark\n\ntrips_by_passenger_count \u003d filtered_trips.select(\"passenger_count\").groupby(\"passenger_count\").count().sort(\"count\", ascending\u003dFalse)\n\nz.show(trips_by_passenger_count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:43:37.234",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "passenger_count": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "passenger_count",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "passenger_count\tcount\n1\t4506450\n2\t936983\n3\t247722\n5\t223442\n6\t130805\n4\t122117\n0\t113807\n7\t28\n9\t18\n8\t17\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d33"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600144628315_1466765161",
+      "id": "paragraph_1600144628315_1466765161",
+      "dateCreated": "2020-09-14 23:37:08.315",
+      "dateStarted": "2020-09-15 07:43:37.242",
+      "dateFinished": "2020-09-15 07:43:39.361",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Duración de los viajes en minutos",
+      "text": "%pyspark\n\n\nbins, counts \u003d get_histogram(filtered_trips, \"duration_in_minutes\", 20)\nduration_in_minutes \u003d [round(bin, 0) for bin in bins]\n\nhistrogram_duration_in_minutes_df \u003d sqlContext.createDataFrame(zip(duration_in_minutes, counts), [\"duration_in_minutes\", \"frequency\"])\nz.show(histrogram_duration_in_minutes_df)",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 07:43:39.463",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "duration_in_minutes": "string",
+                      "frequency": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "duration_in_minutes",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "frequency",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "duration_in_minutes\tfrequency\n0.0\t332388\n3.0\t1093023\n6.0\t1221991\n9.0\t1010707\n12.0\t756247\n15.0\t542463\n18.0\t381146\n21.0\t266397\n24.0\t187131\n27.0\t133718\n30.0\t95033\n33.0\t69362\n36.0\t51710\n39.0\t38627\n42.0\t29545\n45.0\t22554\n48.0\t17613\n51.0\t13438\n54.0\t10286\n57.0\t8010\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d34"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d35"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d36"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d37"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600147269120_239013546",
+      "id": "paragraph_1600147269120_239013546",
+      "dateCreated": "2020-09-15 00:21:09.120",
+      "dateStarted": "2020-09-15 07:43:39.482",
+      "dateFinished": "2020-09-15 07:44:25.614",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Matriz de correlación",
+      "text": "%pyspark\n\ncolumnns \u003d [\"passenger_count\", \"trip_distance\", \"total_amount\", \"duration_in_minutes\"]\n\nfeatures \u003d filtered_trips.select(columns).rdd.map(lambda row: row[0:])\n\nfrom pyspark.mllib.stat import Statistics\n\ncorr_mat\u003dStatistics.corr(features, method\u003d\"pearson\")\n\ncorr_mat_float \u003d map(lambda row: [corr.item() for corr in row], corr_mat)\n\nrows \u003d [(column,) + corr for column, corr in zip(columns, [tuple(row) for row in corr_mat_float])]\n\ncorr_df \u003d sqlContext.createDataFrame(rows, [\"column\"] + columns)\n\nz.show(corr_df)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 10:00:43.559",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "column": "string",
+                      "passenger_count": "string",
+                      "trip_distance": "string",
+                      "total_amount": "string",
+                      "duration_in_minutes": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "column\tpassenger_count\ttrip_distance\ttotal_amount\tduration_in_minutes\npassenger_count\t1.0\t0.010802889687250407\t0.006568792899748823\t0.008685932658231378\ntrip_distance\t0.010802889687250407\t1.0\t0.8607572926276608\t0.78557362825265\ntotal_amount\t0.006568792899748823\t0.8607572926276608\t1.0\t0.7519136441857578\nduration_in_minutes\t0.008685932658231378\t0.78557362825265\t0.7519136441857578\t1.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d50"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d51"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d52"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d53"
+            },
+            {
+              "jobUrl": "http://192.168.1.102:4040/jobs/job?id\u003d54"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600145710700_1881389996",
+      "id": "paragraph_1600145710700_1881389996",
+      "dateCreated": "2020-09-14 23:55:10.700",
+      "dateStarted": "2020-09-15 10:00:43.562",
+      "dateFinished": "2020-09-15 10:02:26.239",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-09-15 09:26:43.774",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1600180003772_2009412835",
+      "id": "paragraph_1600180003772_2009412835",
+      "dateCreated": "2020-09-15 09:26:43.772",
+      "status": "READY"
+    }
+  ],
+  "name": "Exploratory Data Analysis - Demo Zeppelin",
+  "id": "2FHEJPUMC",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {
+    "isRunning": false
+  }
+}
