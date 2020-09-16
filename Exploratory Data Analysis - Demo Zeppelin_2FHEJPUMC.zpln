@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n\n## Pregunta: \n\n¿Como fueron los viajes en taxi que ocurrieron en New York durante enero de 2020?\n\n## Dataset: \n\nhttps://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\n\n## Subset:\n\nhttps://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv (593 MB)",
+      "text": "%md\n\n## Pregunta: \n\nTeniendo en cuenta el número de pasajeros, distancia, total pagado, ubicación y duración, ¿cómo fueron los viajes en taxi en New York durante enero de 2020?\n\n## Dataset: \n\nhttps://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\n\n## Subset:\n\nhttps://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv (593 MB)",
       "user": "anonymous",
-      "dateUpdated": "2020-09-15 08:52:50.157",
+      "dateUpdated": "2020-09-15 12:59:09.968",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -16,8 +16,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -28,7 +28,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePregunta:\u003c/h2\u003e\n\u003cp\u003e¿Como fueron los viajes en taxi que ocurrieron en New York durante enero de 2020?\u003c/p\u003e\n\u003ch2\u003eDataset:\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\"\u003ehttps://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003eSubset:\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv\"\u003ehttps://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv\u003c/a\u003e (593 MB)\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePregunta:\u003c/h2\u003e\n\u003cp\u003eTeniendo en cuenta el número de pasajeros, distancia, total pagado, ubicación y duración, ¿cómo fueron los viajes en taxi en New York durante enero de 2020?\u003c/p\u003e\n\u003ch2\u003eDataset:\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\"\u003ehttps://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003eSubset:\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv\"\u003ehttps://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv\u003c/a\u003e (593 MB)\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1600099713469_183616747",
       "id": "paragraph_1600099713469_183616747",
       "dateCreated": "2020-09-14 11:08:33.469",
-      "dateStarted": "2020-09-15 07:36:09.979",
-      "dateFinished": "2020-09-15 07:36:11.208",
+      "dateStarted": "2020-09-15 12:59:09.978",
+      "dateFinished": "2020-09-15 12:59:10.011",
       "status": "FINISHED"
     },
     {
@@ -2395,7 +2395,5 @@
   "config": {
     "isZeppelinNotebookCronEnable": false
   },
-  "info": {
-    "isRunning": false
-  }
+  "info": {}
 }
